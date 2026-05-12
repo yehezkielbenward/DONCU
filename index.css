@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Fredoka:wght@300..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Comfortaa", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fredoka", sans-serif;
+
+  --color-donut-pink: #FFB7C5;
+  --color-donut-cream: #FFF5E1;
+  --color-donut-chocolate: #4E342E;
+  --color-donut-yellow: #FFD54F;
+  --color-donut-mint: #B2DFDB;
+}
+
+@layer base {
+  body {
+    @apply bg-donut-cream text-donut-chocolate font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold;
+  }
+}
+
+/* Custom "Cute" sprinkle animation */
+@keyframes sprinkle {
+  0% { transform: translateY(-10px) rotate(0deg); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+.sprinkle {
+  position: fixed;
+  width: 8px;
+  height: 20px;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 0;
+  animation: sprinkle 5s linear infinite;
+}
